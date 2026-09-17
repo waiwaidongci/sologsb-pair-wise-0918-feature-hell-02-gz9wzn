@@ -5,6 +5,7 @@
   --primary: #075985;
   --secondary: #0d9488;
   --accent: #f59e0b;
+  --danger: #dc2626;
   --border: #d9e2ef;
 }
 
@@ -18,7 +19,8 @@ body {
 }
 
 button,
-input {
+input,
+select {
   font: inherit;
 }
 
@@ -81,7 +83,7 @@ button {
 
 .metrics {
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
+  grid-template-columns: repeat(5, 1fr);
   gap: 14px;
   margin: 18px 0;
 }
@@ -165,12 +167,14 @@ label span {
   font-size: 13px;
 }
 
-input {
+input,
+select {
   width: 100%;
   min-height: 42px;
   border-radius: 7px;
   border: 1px solid var(--border);
   padding: 0 12px;
+  background: #ffffff;
 }
 
 .records {
@@ -206,6 +210,172 @@ input {
   margin: 0;
   color: #526071;
   line-height: 1.6;
+}
+
+/* ---- 充填台 ---- */
+
+.queue {
+  display: grid;
+  gap: 12px;
+}
+
+.queue-item {
+  padding: 12px 14px;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  background: #fbfdff;
+}
+
+.queue-item.selected {
+  border-color: var(--primary);
+  box-shadow: 0 0 0 2px color-mix(in srgb, var(--primary) 18%, transparent);
+}
+
+.queue-head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+}
+
+.queue-head h3 {
+  margin: 0;
+  font-size: 15px;
+}
+
+.queue-head button {
+  min-height: 30px;
+  padding: 0 12px;
+  font-size: 13px;
+  background: var(--primary);
+  border-color: var(--primary);
+  color: #ffffff;
+}
+
+.tank-line {
+  display: flex;
+  justify-content: space-between;
+  gap: 10px;
+  margin: 8px 0 0;
+  color: #526071;
+  font-size: 13px;
+}
+
+.link {
+  min-height: 0;
+  padding: 0;
+  border: none;
+  background: none;
+  color: var(--primary);
+  font-weight: 700;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
+em {
+  font-style: normal;
+  font-weight: 700;
+}
+
+em.warn {
+  color: var(--accent);
+}
+
+em.bad {
+  color: var(--danger);
+}
+
+.empty {
+  margin: 0;
+  color: #94a3b8;
+}
+
+.mix-hint {
+  margin: 14px 0;
+  padding: 10px 12px;
+  border-radius: 7px;
+  background: color-mix(in srgb, var(--secondary) 10%, #ffffff);
+  border: 1px solid color-mix(in srgb, var(--secondary) 30%, var(--border));
+  color: #0f766e;
+  font-weight: 600;
+}
+
+.tank-fieldset {
+  margin: 0 0 14px;
+  padding: 14px;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+}
+
+.tank-fieldset legend {
+  padding: 0 6px;
+  font-weight: 700;
+  font-size: 14px;
+}
+
+.msg {
+  margin: 14px 0 0;
+  padding: 12px 14px;
+  border-radius: 7px;
+  line-height: 1.6;
+}
+
+.msg.success {
+  background: color-mix(in srgb, var(--secondary) 12%, #ffffff);
+  border: 1px solid var(--secondary);
+  color: #0f766e;
+}
+
+.msg.warn {
+  background: color-mix(in srgb, var(--accent) 14%, #ffffff);
+  border: 1px solid var(--accent);
+  color: #92400e;
+}
+
+.msg.error {
+  background: color-mix(in srgb, var(--danger) 10%, #ffffff);
+  border: 1px solid var(--danger);
+  color: var(--danger);
+}
+
+.msg.info {
+  background: color-mix(in srgb, var(--primary) 8%, #ffffff);
+  border: 1px solid var(--primary);
+  color: var(--primary);
+}
+
+.records b.ok-bg,
+.records b.warn-bg,
+.records b.bad-bg {
+  height: auto;
+  min-height: 44px;
+  padding: 4px 8px;
+  font-size: 13px;
+  text-align: center;
+  background: none;
+}
+
+.records b.ok-bg {
+  background: linear-gradient(135deg, var(--secondary), #14b8a6);
+}
+
+.records b.warn-bg {
+  background: linear-gradient(135deg, var(--accent), #fbbf24);
+}
+
+.records b.bad-bg {
+  background: linear-gradient(135deg, var(--danger), #f87171);
+}
+
+.chips .chip-active {
+  background: var(--primary);
+  border-color: var(--primary);
+  color: #ffffff;
+}
+
+button:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
 }
 
 @media (max-width: 860px) {
